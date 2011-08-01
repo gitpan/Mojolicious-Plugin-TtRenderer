@@ -1,0 +1,29 @@
+NAME
+    Mojolicious::Plugin::TtRenderer - Template Renderer Plugin
+
+SYNOPSIS
+        # Mojolicious
+        $self->plugin('tt_renderer');
+        $self->plugin(tt_renderer => {template_options => {FILTERS => [ ... ]}});
+
+        # Mojolicious::Lite
+        plugin 'tt_renderer';
+        plugin tt_renderer => {template_options => {FILTERS => [ ... ]}};
+
+DESCRIPTION
+    Mojolicous::Plugin::TtRenderer is a simple loader for
+    MojoX::Renderer::TT.
+
+METHODS
+    Mojolicious::Plugin::TtRenderer inherits all methods from
+    Mojolicious::Plugin and implements the following new ones.
+
+  "register"
+        $plugin->register;
+
+    Register renderer in Mojolicious application.
+
+SEE ALSO
+    Mojolicious::Plugin::TtRenderer::Engine, Mojolicious,
+    Mojolicious::Guides, <http://mojolicious.org>.
+
