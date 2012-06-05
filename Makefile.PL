@@ -9,25 +9,25 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  'ABSTRACT' => 'Template Renderer Plugin',
-  'AUTHOR' => 'Ask Bjørn Hansen <ask@develooper.com>',
-  'BUILD_REQUIRES' => {
-    'Test::More' => '0'
+  "ABSTRACT" => "Template Renderer Plugin",
+  "AUTHOR" => "Ask Bj\303\270rn Hansen <ask\@develooper.com>",
+  "BUILD_REQUIRES" => {
+    "Test::More" => 0
   },
-  'CONFIGURE_REQUIRES' => {
-    'ExtUtils::MakeMaker' => '6.30'
+  "CONFIGURE_REQUIRES" => {
+    "ExtUtils::MakeMaker" => "6.30"
   },
-  'DISTNAME' => 'Mojolicious-Plugin-TtRenderer',
-  'EXE_FILES' => [],
-  'LICENSE' => 'perl',
-  'NAME' => 'Mojolicious::Plugin::TtRenderer',
-  'PREREQ_PM' => {
-    'Mojolicious' => '1.3',
-    'Template' => '2.18'
+  "DISTNAME" => "Mojolicious-Plugin-TtRenderer",
+  "EXE_FILES" => [],
+  "LICENSE" => "perl",
+  "NAME" => "Mojolicious::Plugin::TtRenderer",
+  "PREREQ_PM" => {
+    "Mojolicious" => "2.51",
+    "Template" => "2.18"
   },
-  'VERSION' => '1.20',
-  'test' => {
-    'TESTS' => 't/*.t'
+  "VERSION" => "1.21",
+  "test" => {
+    "TESTS" => "t/*.t"
   }
 );
 

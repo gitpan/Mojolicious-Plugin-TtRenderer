@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer::Engine;
-BEGIN {
-  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.20';
+{
+  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.21';
 }
 
 use warnings;
@@ -13,11 +13,13 @@ use File::Spec ();
 use Mojo::ByteStream 'b';
 use Template ();
 use Cwd qw/abs_path/;
+use Scalar::Util 'weaken';
 
 __PACKAGE__->attr('tt');
 
 sub build {
     my $self = shift->SUPER::new(@_);
+    weaken($self->{app});
     $self->_init(@_);
     return sub { $self->_render(@_) }
 }
@@ -28,15 +30,23 @@ sub _init {
 
     #$Template::Parser::DEBUG = 1;
 
+    my $dir;
     my $app = delete $args{mojo} || delete $args{app};
-
-    my $dir = $app && $app->home->rel_dir('tmp/ctpl');
+    if($dir=$args{cache_dir}) {
+      
+      if($app && substr($dir,0,1) ne '/') {
+        $dir=$app->home->rel_dir('tmp/ctpl');
+      }
+    }
 
     # TODO
     #   take and process options :-)
 
     my %config = (
-        ($app ? (INCLUDE_PATH => abs_path($app->home->rel_dir('templates'))) : ()),
+        (   $app
+            ? (INCLUDE_PATH => (join ":", map { abs_path($_) } @{$app->renderer->paths}))
+            : ()
+        ),
         COMPILE_EXT => '.ttc',
         COMPILE_DIR => ($dir || abs_path(File::Spec->tmpdir)),
         UNICODE     => 1,
@@ -81,9 +91,7 @@ sub _render {
     # Error
     unless ($ok) {
 
-        my $e = Mojo::Exception->new(
-            $self->tt->error.'',
-            $self->tt->service->process(defined $inline ? \$inline : $t));
+        my $e = Mojo::Exception->new($self->tt->error.'');
         $$output = '';
         $c->app->log->error(qq/Template error in "$t": $e/);
         $c->render_exception($e);
@@ -133,6 +141,7 @@ use strict;
 use warnings;
 
 use base 'Template::Provider';
+use Scalar::Util 'weaken';
 
 sub new {
     my $class = shift;
@@ -142,6 +151,7 @@ sub new {
 
     my $self = $class->SUPER::new(%params);
     $self->renderer($renderer);
+    weaken($self->{renderer});
     return $self;
 }
 
@@ -250,6 +260,11 @@ object. When used the INCLUDE_PATH will be set to
 
 A hash reference of options that are passed to Template->new().
 
+=item cache_dir
+
+Absolute or relative dir to your app home, to cache processed versions of your
+templates. Will default to a temp-dir if not set.
+
 =back
 
 =head1 AUTHOR
@@ -259,7 +274,6 @@ Ask Bjørn Hansen, C<< <ask at develooper.com> >>
 =head1 TODO
 
    * Better support non-Mojolicious frameworks
-   * Move the default template cache directory?
    * Better way to pass parameters to the templates? (stash)
    * More sophisticated default search path?
 

@@ -23,6 +23,11 @@ METHODS
 
     Register renderer in Mojolicious application.
 
+EXTRA STASH VARIABLES
+    The current controller instance can be accessed as "c".
+
+       [% c.req.headers.host %]
+
 SEE ALSO
     Mojolicious::Plugin::TtRenderer::Engine, Mojolicious,
     Mojolicious::Guides, <http://mojolicious.org>.

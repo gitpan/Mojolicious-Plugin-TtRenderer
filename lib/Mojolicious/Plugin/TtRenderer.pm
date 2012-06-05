@@ -1,9 +1,10 @@
 package Mojolicious::Plugin::TtRenderer;
+{
+  $Mojolicious::Plugin::TtRenderer::VERSION = '1.21';
+}
 
 use strict;
 use warnings;
-
-our $VERSION = '0.01';
 
 use base 'Mojolicious::Plugin';
 
@@ -19,6 +20,8 @@ sub register {
     # Add "tt" handler
     $app->renderer->add_handler(tt => $tt);
 }
+
+local ($Mojolicious::Plugin::TtRenderer::VERSION) = ('devel') unless defined $Mojolicious::Plugin::TtRenderer::VERSION;
 
 1;
 __END__
@@ -51,6 +54,12 @@ L<Mojolicious::Plugin> and implements the following new ones.
     $plugin->register;
 
 Register renderer in L<Mojolicious> application.
+
+=head1 EXTRA STASH VARIABLES
+
+The current controller instance can be accessed as C<c>.
+
+   [% c.req.headers.host %]
 
 =head1 SEE ALSO
 
