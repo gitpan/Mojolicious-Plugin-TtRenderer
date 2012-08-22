@@ -43,10 +43,17 @@ $t->get_ok('/')->status_is(200)
   ->content_like(qr/test123456/);
 $t->get_ok('/blow')->status_is(500)->content_like(qr/file error - doesnotexist.tt: No such file or directory/);
 
-eval "
-  use Devel::Cycle 'find_cycle';
-  find_cycle(app, sub {
-    ok(0, 'Cycle found');
+if(eval q{ use Devel::Cycle; 1 })
+{
+  Devel::Cycle::find_cycle(app, sub {
+    my $arg = shift;
+    # Template::Provider (from which M::P::T::Provider inherits) has some cycles which are freed manaully by
+    # its DESTROY method, so we skip reporting those cycles.
+    unless(scalar(scalar(grep { ref($_->[2]) eq 'Mojolicious::Plugin::TtRenderer::Provider' && $_->[1] =~ /^(HEAD|TAIL|LOOKUP)$/ } @$arg)) > 0)
+    {
+      #use YAML ();
+      #diag YAML::Dump([ map { [ $_->[0], $_->[1], ref($_->[2]), ref($_->[3]) ] } @$arg ]);
+      fail('Cycle found')
+    }
   });
-";
-
+};

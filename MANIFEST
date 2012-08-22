@@ -10,6 +10,7 @@ lib/Mojolicious/Plugin/TtRenderer.pm
 lib/Mojolicious/Plugin/TtRenderer/Engine.pm
 t/00-compile.t
 t/00-load.t
+t/deep_recursion.t
 t/lite_app.t
 t/pod-coverage.t
 t/pod.t
