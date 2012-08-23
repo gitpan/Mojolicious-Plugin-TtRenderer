@@ -1,5 +1,8 @@
 Revision history for Mojolicious::Plugin::TtRenderer
 
+1.23    August 23, 2012
+        - Use die instead of render_exception (GH#29)
+
 1.22    August 21, 2012
         - Compatibility with Mojolicious 3.05+ (GH#24)
         - Avoid deep recursion when exception template dies (GH#25,GH26)
