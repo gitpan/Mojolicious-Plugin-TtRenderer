@@ -14,10 +14,10 @@ meta-spec:
   version: 1.4
 name: Mojolicious-Plugin-TtRenderer
 requires:
-  Mojolicious: 2.51
+  Mojolicious: 3.33
   Template: 2.18
 resources:
   bugtracker: https://github.com/abh/mojox-renderer-tt/issues
   homepage: http://search.cpan.org/dist/Mojolicious-Plugin-TtRenderer/
   repository: git://github.com/abh/mojox-renderer-tt.git
-version: 1.23
+version: 1.24

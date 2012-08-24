@@ -1,5 +1,8 @@
 Revision history for Mojolicious::Plugin::TtRenderer
 
+1.24    August 23, 2012
+        - Compatibility with Mojolicious 3.33+
+
 1.23    August 23, 2012
         - Use die instead of render_exception (GH#29)
 

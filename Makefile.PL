@@ -22,10 +22,10 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Mojolicious::Plugin::TtRenderer",
   "PREREQ_PM" => {
-    "Mojolicious" => "2.51",
+    "Mojolicious" => "3.33",
     "Template" => "2.18"
   },
-  "VERSION" => "1.23",
+  "VERSION" => "1.24",
   "test" => {
     "TESTS" => "t/*.t"
   }
