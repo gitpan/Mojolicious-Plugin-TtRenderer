@@ -10,7 +10,7 @@ use ExtUtils::MakeMaker 6.30;
 
 my %WriteMakefileArgs = (
   "ABSTRACT" => "Template Renderer Plugin",
-  "AUTHOR" => "Ask Bj\303\270rn Hansen <ask\@develooper.com>",
+  "AUTHOR" => "Graham Ollis <plicease\@cpan.org>",
   "BUILD_REQUIRES" => {
     "Test::More" => 0
   },
@@ -25,7 +25,7 @@ my %WriteMakefileArgs = (
     "Mojolicious" => "3.33",
     "Template" => "2.18"
   },
-  "VERSION" => "1.24",
+  "VERSION" => "1.25",
   "test" => {
     "TESTS" => "t/*.t"
   }

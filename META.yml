@@ -1,7 +1,7 @@
 ---
 abstract: 'Template Renderer Plugin'
 author:
-  - 'Ask Bjørn Hansen <ask@develooper.com>'
+  - 'Graham Ollis <plicease@cpan.org>'
 build_requires:
   Test::More: 0
 configure_requires:
@@ -20,4 +20,4 @@ resources:
   bugtracker: https://github.com/abh/mojox-renderer-tt/issues
   homepage: http://search.cpan.org/dist/Mojolicious-Plugin-TtRenderer/
   repository: git://github.com/abh/mojox-renderer-tt.git
-version: 1.24
+version: 1.25

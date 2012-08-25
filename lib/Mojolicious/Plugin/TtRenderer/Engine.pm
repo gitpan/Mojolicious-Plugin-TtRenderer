@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer::Engine;
 {
-  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.24';
+  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.25';
 }
 
 use warnings;
@@ -88,8 +88,11 @@ sub _render {
     my $provider = $self->tt->{SERVICE}->{CONTEXT}->{LOAD_TEMPLATES}->[0];
     $provider->options($options);
     $provider->ctx($c);
+    $provider->not_found(0);
 
     my $ok = $self->tt->process(defined $inline ? \$inline : $t, @params);
+
+    return 0 if $provider->not_found;
 
     # Error
     die $self->tt->error unless $ok;
@@ -153,6 +156,7 @@ sub new {
 sub renderer      { @_ > 1 ? $_[0]->{renderer}      = $_[1] : $_[0]->{renderer} }
 sub ctx           { @_ > 1 ? $_[0]->{ctx}           = $_[1] : $_[0]->{ctx} }
 sub options       { @_ > 1 ? $_[0]->{options}       = $_[1] : $_[0]->{options} }
+sub not_found     { @_ > 1 ? $_[0]->{not_found}     = $_[1] : $_[0]->{not_found} }
 
 sub _template_modified {1}
 
@@ -170,28 +174,26 @@ sub _template_content {
         return $self->SUPER::_template_content(@_);
     }
 
+    my $data;
+    my $error = '';
+
     # Try DATA section
-    if(defined $options)
-    {
-      my $d = $self->renderer->get_data_template($options);
-      return wantarray ? ($d, '', time) : $d
-        if $d;
-    }
-    else
-    {
-      my $loader = Mojo::Loader->new;
-      foreach my $class (@{ $self->renderer->classes })
-      {
-        my $d = $loader->data($class, $t);
-        return wantarray ? ($d, '', time) : $d
-          if $d;
-      }
+    if(defined $options) {
+        $data = $self->renderer->get_data_template($options);
+        $self->not_found(1) unless defined $data;
+    } else {
+        my $loader = Mojo::Loader->new;
+        foreach my $class (@{ $self->renderer->classes }) {
+            $data = $loader->data($class, $t);
+            last if $data;
+        }
     }
 
-    my $data = '';
-    my $error = "$path: not found";
-    my $mod_date = time;
-    return wantarray ? ($data, $error, $mod_date) : $data;
+    unless($data) {
+        $data = '';
+        $error = "$path: not found";
+    }
+    return wantarray ? ($data, $error, time) : $data;
 }
 
 1;

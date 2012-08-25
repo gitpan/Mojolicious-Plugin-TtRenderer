@@ -11,13 +11,16 @@ lib/Mojolicious/Plugin/TtRenderer/Engine.pm
 t/00-compile.t
 t/00-load.t
 t/deep_recursion.t
+t/default_template.t
 t/lite_app.t
 t/pod-coverage.t
 t/pod.t
 t/release-distmeta.t
 t/release-has-version.t
+t/templates/Foo.pm
 t/templates/conditional-exception.html.tt
 t/templates/exception.testing.html.ep
 t/templates/foo.html.tt
 t/templates/index.html.tt
 t/tt_plugin_lite_app.t
+t/two_data.t
