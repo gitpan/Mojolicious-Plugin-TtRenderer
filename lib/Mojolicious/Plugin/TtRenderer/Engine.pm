@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer::Engine;
 {
-  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.25';
+  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.26';
 }
 
 use warnings;
@@ -43,9 +43,11 @@ sub _init {
     # TODO
     #   take and process options :-)
 
+    my @renderer_paths = $app ? map { abs_path($_) } grep { -d $_ } @{ $app->renderer->paths } : ();
+
     my %config = (
-        (   $app
-            ? (INCLUDE_PATH => (join ":", map { abs_path($_) } @{$app->renderer->paths}))
+        (   @renderer_paths > 0
+            ? (INCLUDE_PATH => join(":", @renderer_paths))
             : ()
         ),
         COMPILE_EXT => '.ttc',
