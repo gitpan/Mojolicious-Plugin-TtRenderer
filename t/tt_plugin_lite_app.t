@@ -6,10 +6,8 @@ use strict;
 use warnings;
 
 BEGIN {
-  #use if $^O ne 'MSWin32', POSIX => qw/setlocale LC_ALL/;
-  #setlocale(&LC_ALL, 'C') if $^O ne 'MSWin32';
   unless($^O eq 'MSWin32') {
-    eval q{
+    eval '# line '. __LINE__ . ' "' . __FILE__ . qq("\n). q{
       use POSIX qw( setlocale LC_ALL );
       setlocale(LC_ALL, 'C');
     };
@@ -17,12 +15,12 @@ BEGIN {
   }
 }
 
-use File::Temp;
+use File::Temp qw( tempdir );
 use Mojo::IOLoop;
 use Test::More;
 
 # Use a clean temporary directory
-BEGIN { $ENV{MOJO_TMPDIR} ||= File::Temp::tempdir }
+BEGIN { $ENV{MOJO_TMPDIR} ||= tempdir( CLEANUP => 1) }
 
 # Make sure sockets are working
 plan skip_all => 'working sockets required for this test!'
@@ -36,7 +34,7 @@ use Mojolicious::Lite;
 use Test::Mojo;
 
 # POD renderer plugin
-plugin 'tt_renderer';
+plugin 'tt_renderer' => {template_options => { COMPILE_DIR => tempdir( CLEANUP => 1 ) }};
 
 # Silence
 app->log->level('error');
@@ -57,6 +55,8 @@ $t->get_ok('/blow')->status_is(500)->content_like(qr/file error - doesnotexist\.
 
 if(eval q{ use Devel::Cycle; 1 })
 {
+  # ignore warnings coming from Devel::Cycle
+  local $SIG{__WARN__} = sub { };
   Devel::Cycle::find_cycle(app, sub {
     my $arg = shift;
     # Template::Provider (from which M::P::T::Provider inherits) has some cycles which are freed manaully by
