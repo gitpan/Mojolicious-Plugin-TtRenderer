@@ -1,0 +1,54 @@
+{
+   "abstract" : "Template Renderer Plugin",
+   "author" : [
+      "Graham Ollis <plicease@cpan.org>"
+   ],
+   "dynamic_config" : 0,
+   "generated_by" : "Dist::Zilla version 4.300028, CPAN::Meta::Converter version 2.120921",
+   "license" : [
+      "perl_5"
+   ],
+   "meta-spec" : {
+      "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
+      "version" : "2"
+   },
+   "name" : "Mojolicious-Plugin-TtRenderer",
+   "prereqs" : {
+      "configure" : {
+         "requires" : {
+            "ExtUtils::MakeMaker" : "6.30"
+         }
+      },
+      "develop" : {
+         "requires" : {
+            "Test::CPAN::Meta" : "0"
+         }
+      },
+      "runtime" : {
+         "requires" : {
+            "Mojolicious" : "3.33",
+            "Template" : "2.18",
+            "perl" : "v5.10.0"
+         }
+      },
+      "test" : {
+         "requires" : {
+            "Test::More" : "0"
+         }
+      }
+   },
+   "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/abh/mojox-renderer-tt/issues"
+      },
+      "homepage" : "http://search.cpan.org/dist/Mojolicious-Plugin-TtRenderer/",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/abh/mojox-renderer-tt.git",
+         "web" : "http://github.com/abh/mojox-renderer-tt"
+      }
+   },
+   "version" : "1.34"
+}
+
