@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer;
 {
-  $Mojolicious::Plugin::TtRenderer::VERSION = '1.34';
+  $Mojolicious::Plugin::TtRenderer::VERSION = '1.35';
 }
 
 use strict;
@@ -45,7 +45,7 @@ Mojolicious::Plugin::TtRenderer - Template Renderer Plugin
 
 =head1 DESCRIPTION
 
-L<Mojolicous::Plugin::TtRenderer> is a simple loader for 
+L<Mojolicious::Plugin::TtRenderer> is a simple loader for 
 L<Mojolicious::Plugin::TtRenderer::Engine>.
 
 =head1 METHODS
