@@ -13,6 +13,7 @@ t/00-compile.t
 t/00-load.t
 t/deep_recursion.t
 t/default_template.t
+t/default_template2.t
 t/lite_app.t
 t/multiple_paths.t
 t/pod-coverage.t

@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer::Engine;
 {
-  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.35';
+  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.36';
 }
 
 use warnings;
@@ -15,6 +15,7 @@ use Mojo::ByteStream 'b';
 use Template ();
 use Cwd qw/abs_path/;
 use Scalar::Util 'weaken';
+use POSIX ':errno_h';
 
 __PACKAGE__->attr('tt');
 
@@ -90,11 +91,26 @@ sub _render {
     my $provider = $self->tt->{SERVICE}->{CONTEXT}->{LOAD_TEMPLATES}->[0];
     $provider->options($options);
     $provider->ctx($c);
-    $provider->not_found(0);
 
-    my $ok = $self->tt->process(defined $inline ? \$inline : $t, @params);
+    my $ok = do {
+        if (defined $inline) {
+            $self->tt->process(\$inline, @params);
+        }
+        else {
+            my @ret = $provider->fetch($t);
 
-    return 0 if $provider->not_found;
+            if (not defined $ret[1]) {
+                $self->tt->process($ret[0], @params);
+            }
+            elsif (not defined $ret[0]) { # not found
+                return 0;
+            }
+            else { # error
+                return 0 if $! == ENOENT && (not ref $ret[0]); # not found when not blessed exception
+                die $ret[0];
+            }
+        }
+    };
 
     # Error
     die $self->tt->error unless $ok;
@@ -158,7 +174,6 @@ sub new {
 sub renderer      { @_ > 1 ? $_[0]->{renderer}      = $_[1] : $_[0]->{renderer} }
 sub ctx           { @_ > 1 ? $_[0]->{ctx}           = $_[1] : $_[0]->{ctx} }
 sub options       { @_ > 1 ? $_[0]->{options}       = $_[1] : $_[0]->{options} }
-sub not_found     { @_ > 1 ? $_[0]->{not_found}     = $_[1] : $_[0]->{not_found} }
 
 sub _template_modified {
     my($self, $template) = @_;
@@ -186,7 +201,6 @@ sub _template_content {
     # Try DATA section
     if(defined $options) {
         $data = $self->renderer->get_data_template($options);
-        $self->not_found(1) unless defined $data;
     } else {
         my $loader = Mojo::Loader->new;
         foreach my $class (@{ $self->renderer->classes }) {
