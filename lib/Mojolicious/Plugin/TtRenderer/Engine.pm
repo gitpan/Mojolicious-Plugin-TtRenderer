@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer::Engine;
 {
-  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.36';
+  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.37';
 }
 
 use warnings;
