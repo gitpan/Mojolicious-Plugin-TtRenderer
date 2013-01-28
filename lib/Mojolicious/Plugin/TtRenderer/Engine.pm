@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer::Engine;
 {
-  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.37';
+  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.38';
 }
 
 use warnings;
@@ -49,7 +49,7 @@ sub _init {
     my %config = (
         (   @renderer_paths > 0
             ? (INCLUDE_PATH => [@renderer_paths, 'templates'])
-            : ()
+            : (INCLUDE_PATH => ['templates'])
         ),
         COMPILE_EXT => '.ttc',
         COMPILE_DIR => ($dir || abs_path(File::Spec->tmpdir)),
