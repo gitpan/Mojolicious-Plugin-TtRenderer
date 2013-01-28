@@ -2,13 +2,13 @@ NAME
     Mojolicious::Plugin::TtRenderer - Template Renderer Plugin
 
 SYNOPSIS
-        # Mojolicious
-        $self->plugin('tt_renderer');
-        $self->plugin(tt_renderer => {template_options => {FILTERS => [ ... ]}});
+     # Mojolicious
+     $self->plugin('tt_renderer');
+     $self->plugin(tt_renderer => {template_options => {FILTERS => [ ... ]}});
 
-        # Mojolicious::Lite
-        plugin 'tt_renderer';
-        plugin tt_renderer => {template_options => {FILTERS => [ ... ]}};
+     # Mojolicious::Lite
+     plugin 'tt_renderer';
+     plugin tt_renderer => {template_options => {FILTERS => [ ... ]}};
 
 DESCRIPTION
     Mojolicious::Plugin::TtRenderer is a simple loader for
@@ -19,14 +19,14 @@ METHODS
     Mojolicious::Plugin and implements the following new ones.
 
   "register"
-        $plugin->register;
+     $plugin->register;
 
     Register renderer in Mojolicious application.
 
 EXTRA STASH VARIABLES
     The current controller instance can be accessed as "c".
 
-       [% c.req.headers.host %]
+     [% c.req.headers.host %]
 
 SEE ALSO
     Mojolicious::Plugin::TtRenderer::Engine, Mojolicious,
@@ -44,7 +44,7 @@ BUGS
 SUPPORT
     You can find documentation for this module with the perldoc command.
 
-        perldoc Mojolicious::Plugin::TtRenderer
+     perldoc Mojolicious::Plugin::TtRenderer
 
     You can also look for information at:
 
