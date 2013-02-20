@@ -11,6 +11,7 @@ lib/Mojolicious/Plugin/TtRenderer.pm
 lib/Mojolicious/Plugin/TtRenderer/Engine.pm
 t/00-compile.t
 t/00-load.t
+t/01-ioloop.t
 t/deep_recursion.t
 t/default_handler_as_engine.t
 t/default_handler_as_plugin.t
