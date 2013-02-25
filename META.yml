@@ -21,4 +21,4 @@ resources:
   bugtracker: https://github.com/abh/mojox-renderer-tt/issues
   homepage: http://search.cpan.org/dist/Mojolicious-Plugin-TtRenderer/
   repository: git://github.com/abh/mojox-renderer-tt.git
-version: 1.42
+version: 1.42_01

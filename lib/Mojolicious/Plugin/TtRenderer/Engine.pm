@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer::Engine;
 {
-  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.42';
+  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.42_01';
 }
 
 use warnings;
@@ -50,7 +50,12 @@ sub _init {
     my %config = (
         INCLUDE_PATH => \@renderer_paths,
         COMPILE_EXT  => '.ttc',
-        COMPILE_DIR  => ($dir || abs_path(File::Spec->tmpdir)),
+        # TODO maybe this should be File::Spec->catdir(File::Spec->tmpdir, $<)
+        COMPILE_DIR  => ($dir || do {
+          my $dir = File::Spec->catdir(File::Spec->tmpdir, "ttr$<");
+          mkdir $dir;
+          $dir;
+        }),
         UNICODE      => 1,
         ENCODING     => 'utf-8',
         CACHE_SIZE   => 128,

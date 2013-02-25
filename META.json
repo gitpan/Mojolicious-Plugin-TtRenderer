@@ -37,7 +37,7 @@
          }
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/abh/mojox-renderer-tt/issues"
@@ -49,6 +49,6 @@
          "web" : "http://github.com/abh/mojox-renderer-tt"
       }
    },
-   "version" : "1.42"
+   "version" : "1.42_01"
 }
 
