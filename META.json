@@ -40,15 +40,15 @@
    "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/abh/mojox-renderer-tt/issues"
+         "web" : "https://github.com/plicease/mojox-renderer-tt/issues"
       },
       "homepage" : "http://search.cpan.org/dist/Mojolicious-Plugin-TtRenderer/",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/abh/mojox-renderer-tt.git",
-         "web" : "http://github.com/abh/mojox-renderer-tt"
+         "url" : "git://github.com/plicease/mojox-renderer-tt.git",
+         "web" : "http://github.com/plicease/mojox-renderer-tt"
       }
    },
-   "version" : "1.42_03"
+   "version" : "1.42_04"
 }
 

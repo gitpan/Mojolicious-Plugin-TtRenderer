@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer;
 {
-  $Mojolicious::Plugin::TtRenderer::VERSION = '1.42_03';
+  $Mojolicious::Plugin::TtRenderer::VERSION = '1.42_04';
 }
 
 use strict;

@@ -25,7 +25,7 @@ my %WriteMakefileArgs = (
     "Mojolicious" => "3.33",
     "Template" => "2.18"
   },
-  "VERSION" => "1.42_03",
+  "VERSION" => "1.42_04",
   "test" => {
     "TESTS" => "t/*.t"
   }
