@@ -1,6 +1,6 @@
 package Mojolicious::Plugin::TtRenderer::Engine;
 {
-  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.43';
+  $Mojolicious::Plugin::TtRenderer::Engine::VERSION = '1.43_01';
 }
 
 use warnings;
@@ -180,8 +180,7 @@ sub options       { @_ > 1 ? $_[0]->{options}       = $_[1] : $_[0]->{options} }
 
 sub _template_modified {
     my($self, $template) = @_;
-    return 1 if $self->SUPER::_template_modified($template);
-    return $template =~ /^templates(?:\/|\\)/;
+    $self->SUPER::_template_modified($template) || $template =~ /^templates(?:\/|\\)/;
 }
 
 sub _template_content {

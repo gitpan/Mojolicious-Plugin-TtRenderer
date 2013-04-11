@@ -37,7 +37,7 @@
          }
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "bugtracker" : {
          "web" : "https://github.com/plicease/mojox-renderer-tt/issues"
@@ -49,6 +49,6 @@
          "web" : "http://github.com/plicease/mojox-renderer-tt"
       }
    },
-   "version" : "1.43"
+   "version" : "1.43_01"
 }
 
