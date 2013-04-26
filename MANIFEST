@@ -17,6 +17,7 @@ t/default_handler_as_engine.t
 t/default_handler_as_plugin.t
 t/default_handler_no_templates_dir.t
 t/lite_app.t
+t/lite_app_with_default_layouts.t
 t/multiple_paths.t
 t/pod-coverage.t
 t/pod.t
