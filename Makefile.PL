@@ -20,13 +20,33 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Mojolicious::Plugin::TtRenderer",
   "PREREQ_PM" => {
+    "Carp" => 0,
+    "Cwd" => 0,
+    "File::Spec" => 0,
+    "Mojo::Base" => 0,
+    "Mojo::ByteStream" => 0,
     "Mojolicious" => "3.33",
-    "Template" => "2.18"
+    "Mojolicious::Plugin" => 0,
+    "POSIX" => 0,
+    "Scalar::Util" => 0,
+    "Template" => "2.18",
+    "Template::Provider" => 0,
+    "base" => 0,
+    "strict" => 0,
+    "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "Test::More" => 0
+    "File::Find" => 0,
+    "File::Temp" => 0,
+    "FindBin" => 0,
+    "Mojo::IOLoop" => 0,
+    "Mojolicious::Lite" => 0,
+    "Test::Mojo" => 0,
+    "Test::More" => 0,
+    "lib" => 0,
+    "utf8" => 0
   },
-  "VERSION" => "1.46",
+  "VERSION" => "1.47",
   "test" => {
     "TESTS" => "t/*.t"
   }

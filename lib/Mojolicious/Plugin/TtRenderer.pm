@@ -1,11 +1,11 @@
 package Mojolicious::Plugin::TtRenderer;
-{
-  $Mojolicious::Plugin::TtRenderer::VERSION = '1.46';
-}
 
 use strict;
 use warnings;
 use v5.10;
+
+# ABSTRACT: Template Renderer Plugin
+our $VERSION = '1.47'; # VERSION
 
 use base 'Mojolicious::Plugin';
 
@@ -25,13 +25,18 @@ sub register {
 $Mojolicious::Plugin::TtRenderer::VERSION //= ('devel');
 
 1;
+
 __END__
 
-=encoding utf-8
+=pod
 
 =head1 NAME
 
 Mojolicious::Plugin::TtRenderer - Template Renderer Plugin
+
+=head1 VERSION
+
+version 1.47
 
 =head1 SYNOPSIS
 
@@ -47,6 +52,8 @@ Mojolicious::Plugin::TtRenderer - Template Renderer Plugin
 
 L<Mojolicious::Plugin::TtRenderer> is a simple loader for 
 L<Mojolicious::Plugin::TtRenderer::Engine>.
+
+=encoding utf-8
 
 =head1 METHODS
 
@@ -72,51 +79,47 @@ L<Mojolicious>,
 L<Mojolicious::Guides>, 
 L<http://mojolicious.org>.
 
+=cut
+
 =head1 AUTHOR
 
-Current maintainer: Graham Ollis C<< <plicease@cpan.org> >>
+original author: Ask Bjørn Hansen
 
-Original author: Ask Bjørn Hansen, C<< <ask at develooper.com> >>
+current maintainer: Graham Ollis <plicease@cpan.org>
 
-=head1 BUGS
+contributors:
 
-Please report any bugs or feature requests to the project's github issue tracker
-L<https://github.com/abh/mojox-renderer-tt/issues?state=open>.
+vti
 
-=head1 SUPPORT
+Marcus Ramberg
 
-You can find documentation for this module with the perldoc command.
+Matthias Bethke
 
- perldoc Mojolicious::Plugin::TtRenderer
+Htbaa
 
-You can also look for information at:
+Magnus Holm
 
-=over 4
+Maxim Vuets
 
-=item * git repository
+Rafael Kitover
 
-L<http://git.develooper.com/?p=MojoX-Renderer-TT.git;a=summary>,
-L<git://git.develooper.com/MojoX-Renderer-TT.git>
+giftnuss
 
-L<http://github.com/abh/mojox-renderer-tt/>
+Cosimo Streppone
 
-=item * CPAN Ratings
+Fayland Lam
 
-L<http://cpanratings.perl.org/d/MojoX-Renderer-TT>
+Jason Crowther
 
-=item * Search CPAN
+spleenjack
 
-L<http://search.cpan.org/dist/MojoX-Renderer-TT/>
+Árpád Szász
 
-=back
+=head1 COPYRIGHT AND LICENSE
 
-=head1 COPYRIGHT & LICENSE
+This software is copyright (c) 2013 by Ask Bjørn Hansen.
 
-Copyright 2008-2010 Ask Bjørn Hansen, all rights reserved.
-
-Copyright 2012 Graham Ollis.
-
-This program is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
