@@ -3,7 +3,7 @@ NAME
     Mojolicious
 
 VERSION
-    version 1.48
+    version 1.49
 
 SYNOPSIS
     Mojolicious::Lite:
@@ -89,7 +89,7 @@ OPTIONS
      plugin 'tt_renderer', { template_options { COMPILE_DIR => 'some/path' } };
 
     except in the first example relative paths are relative to the
-    Mojolicious app's home directory ("$app-"home>).
+    Mojolicious app's home directory ("$app->home").
 
 STASH
   h

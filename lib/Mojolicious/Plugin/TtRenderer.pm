@@ -5,7 +5,7 @@ use warnings;
 use v5.10;
 
 # ABSTRACT: Template Renderer Plugin for Mojolicious
-our $VERSION = '1.48'; # VERSION
+our $VERSION = '1.49'; # VERSION
 
 use base 'Mojolicious::Plugin';
 
@@ -36,7 +36,7 @@ Mojolicious::Plugin::TtRenderer - Template Renderer Plugin for Mojolicious
 
 =head1 VERSION
 
-version 1.48
+version 1.49
 
 =head1 SYNOPSIS
 
@@ -139,7 +139,7 @@ is equivalent to
  plugin 'tt_renderer', { template_options { COMPILE_DIR => 'some/path' } };
 
 except in the first example relative paths are relative to the L<Mojolicious>
-app's home directory (C<$app->home>).
+app's home directory (C<$app-E<gt>home>).
 
 =head1 STASH
 

@@ -13,7 +13,7 @@ use Scalar::Util 'weaken';
 use POSIX ':errno_h';
 
 # ABSTRACT: Template Toolkit renderer for Mojolicious
-our $VERSION = '1.48'; # VERSION
+our $VERSION = '1.49'; # VERSION
 
 __PACKAGE__->attr('tt');
 
@@ -232,7 +232,7 @@ Mojolicious::Plugin::TtRenderer::Engine - Template Toolkit renderer for Mojolici
 
 =head1 VERSION
 
-version 1.48
+version 1.49
 
 =head1 SYNOPSIS
 
@@ -260,7 +260,7 @@ Add the handler:
      $self->renderer->add_handler( tt => $tt );
  }
 
-Template parameter are taken from C< $c->stash >.
+Template parameter are taken from C<$c-E<gt>stash>.
 
 =encoding utf-8
 
