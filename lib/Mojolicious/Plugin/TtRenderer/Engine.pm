@@ -12,8 +12,8 @@ use Cwd qw/abs_path/;
 use Scalar::Util 'weaken';
 use POSIX ':errno_h';
 
-# ABSTRACT: Template Toolkit renderer for Mojo
-our $VERSION = '1.47'; # VERSION
+# ABSTRACT: Template Toolkit renderer for Mojolicious
+our $VERSION = '1.48'; # VERSION
 
 __PACKAGE__->attr('tt');
 
@@ -228,11 +228,11 @@ __END__
 
 =head1 NAME
 
-Mojolicious::Plugin::TtRenderer::Engine - Template Toolkit renderer for Mojo
+Mojolicious::Plugin::TtRenderer::Engine - Template Toolkit renderer for Mojolicious
 
 =head1 VERSION
 
-version 1.47
+version 1.48
 
 =head1 SYNOPSIS
 

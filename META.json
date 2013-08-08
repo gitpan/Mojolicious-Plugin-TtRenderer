@@ -1,10 +1,10 @@
 {
-   "abstract" : "Template Renderer Plugin",
+   "abstract" : "Template Renderer Plugin for Mojolicious",
    "author" : [
       "Graham Ollis <plicease@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560",
+   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.132140",
    "license" : [
       "perl_5"
    ],
@@ -13,6 +13,11 @@
       "version" : "2"
    },
    "name" : "Mojolicious-Plugin-TtRenderer",
+   "no_index" : {
+      "directory" : [
+         "example"
+      ]
+   },
    "prereqs" : {
       "configure" : {
          "requires" : {
@@ -45,13 +50,14 @@
       },
       "test" : {
          "requires" : {
-            "File::Find" : "0",
+            "Capture::Tiny" : "0",
             "File::Temp" : "0",
             "FindBin" : "0",
             "Mojo::IOLoop" : "0",
             "Mojolicious::Lite" : "0",
             "Test::Mojo" : "0",
-            "Test::More" : "0",
+            "Test::More" : "0.88",
+            "blib" : "0",
             "lib" : "0",
             "utf8" : "0"
          }
@@ -69,6 +75,6 @@
          "web" : "http://github.com/plicease/mojox-renderer-tt"
       }
    },
-   "version" : "1.47"
+   "version" : "1.48"
 }
 

@@ -8,6 +8,16 @@ META.yml
 Makefile.PL
 README
 dist.ini
+example/README
+example/myapp.pl
+example/myapp/lib/MyApp.pm
+example/myapp/lib/MyApp/Example.pm
+example/myapp/log/development.log
+example/myapp/public/index.html
+example/myapp/script/my_app
+example/myapp/t/basic.t
+example/myapp/templates/example/welcome.html.tt
+example/myapp/templates/layouts/default.html.tt
 lib/Mojolicious/Plugin/TtRenderer.pm
 lib/Mojolicious/Plugin/TtRenderer/Engine.pm
 t/00-compile.t
@@ -20,7 +30,6 @@ t/default_handler_no_templates_dir.t
 t/lite_app.t
 t/lite_app_with_default_layouts.t
 t/multiple_paths.t
-t/pod-coverage.t
 t/pod.t
 t/templates/Foo.pm
 t/templates/conditional-exception.html.tt

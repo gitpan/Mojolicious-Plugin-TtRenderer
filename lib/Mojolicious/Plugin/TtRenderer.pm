@@ -4,8 +4,8 @@ use strict;
 use warnings;
 use v5.10;
 
-# ABSTRACT: Template Renderer Plugin
-our $VERSION = '1.47'; # VERSION
+# ABSTRACT: Template Renderer Plugin for Mojolicious
+our $VERSION = '1.48'; # VERSION
 
 use base 'Mojolicious::Plugin';
 
@@ -32,45 +32,193 @@ __END__
 
 =head1 NAME
 
-Mojolicious::Plugin::TtRenderer - Template Renderer Plugin
+Mojolicious::Plugin::TtRenderer - Template Renderer Plugin for Mojolicious
 
 =head1 VERSION
 
-version 1.47
+version 1.48
 
 =head1 SYNOPSIS
 
- # Mojolicious
- $self->plugin('tt_renderer');
- $self->plugin(tt_renderer => {template_options => {FILTERS => [ ... ]}});
+L<Mojolicious::Lite>:
 
- # Mojolicious::Lite
  plugin 'tt_renderer';
- plugin tt_renderer => {template_options => {FILTERS => [ ... ]}};
+
+L<Mojolicious>
+
+ $self->plugin('tt_renderer');
 
 =head1 DESCRIPTION
 
-L<Mojolicious::Plugin::TtRenderer> is a simple loader for 
-L<Mojolicious::Plugin::TtRenderer::Engine>.
+This plugin is a simple Template Toolkit renderer for L<Mojolicious>. 
+Its defaults are usually reasonable, although for finer grain detail in 
+configuration you may want to use 
+L<Mojolicious::Plugin::TtRenderer::Engine> directly.
 
 =encoding utf-8
 
-=head1 METHODS
+=head1 OPTIONS
 
-L<Mojolicious::Plugin::TtRenderer> inherits all methods from
-L<Mojolicious::Plugin> and implements the following new ones.
+These are the options that can be passed in as arguments to this plugin.
 
-=head2 C<register>
+=head2 template_options
 
- $plugin->register;
+Configuration hash passed into L<Template>'s constructor, see 
+L<Template Toolkit's configuration summary|Template#CONFIGURATION-SUMMARY>
+for details.  Here is an example using the L<Mojolicious::Lite> form:
 
-Register renderer in L<Mojolicious> application.
+ plugin 'tt_renderer' => {
+   template_options => {
+     PRE_CHOMP => 1,
+     POST_CHOMP => 1,
+     TRIM => 1,
+   },
+ };
 
-=head1 EXTRA STASH VARIABLES
+Here is the same example using the full L<Mojolicious> app form:
+
+ package MyApp;
+ 
+ use Mojo::Base qw( Mojolicious );
+ 
+ sub startup {
+   my($self) = @_;
+   
+   $self->plugin('tt_renderer' => {
+     template_options => {
+       PRE_CHOMP => 1,
+       POST_CHOMP => 1,
+       TRIM => 1,
+     },
+   }
+   
+   ...
+ }
+
+These options will be used if you do not override them:
+
+=over 4
+
+=item INCLUDE_PATH
+
+Generated based on your application's renderer's configuration.  It
+will include all renderer paths, in addition to search files located
+in the C<__DATA__> section by the usual logic used by L<Mojolicious>.
+
+=item COMPILE_EXT
+
+C<.ttc>
+
+=item UNICODE
+
+C<1> (true)
+
+=item ENCODING
+
+C<utf-87>
+
+=item CACHE_SIZE
+
+C<128>
+
+=item RELATIZE
+
+C<1> (true)
+
+=back
+
+=head2 cache_dir
+
+Specifies the directory in which compiled template files are
+written.  This:
+
+ plugin 'tt_renderer', { cache_dir => 'some/path' };
+
+is equivalent to
+
+ plugin 'tt_renderer', { template_options { COMPILE_DIR => 'some/path' } };
+
+except in the first example relative paths are relative to the L<Mojolicious>
+app's home directory (C<$app->home>).
+
+=head1 STASH
+
+=head2 h
+
+Helpers are available via the C<h> entry in the stash.
+
+ <a href="[% h.url_for('index') %]">go back to index</a>
+
+=head2 c
 
 The current controller instance can be accessed as C<c>.
 
- [% c.req.headers.host %]
+ I see you are requesting a document from [% c.req.headers.host %].
+
+=head1 EXAMPLES
+
+L<Mojolicious::Lite> example:
+
+ use Mojolicious::Lite;
+ 
+ plugin 'tt_renderer';
+ 
+ get '/' => sub {
+   my $self = shift;
+   $self->render('index');
+ };
+ 
+ app->start;
+ 
+ __DATA__
+ 
+ @@ index.html.tt
+ [% 
+    WRAPPER 'layouts/default.html.tt' 
+    title = 'Welcome'
+ %]
+ <p>Welcome to the Mojolicious real-time web framework!</p>
+ <p>Welcome to the TtRenderer plugin!</p>
+ [% END %]
+ 
+ @@ layouts/default.html.tt
+ <!DOCTYPE html>
+ <html>
+   <head><title>[% title %]</title></head>
+   <body>[% content %]</body>
+ </html>
+
+L<Mojolicious> example:
+
+ package MyApp;
+ use Mojo::Base 'Mojolicious';
+ 
+ sub startup {
+   my $self = shift;
+   $self->plugin('tt_renderer');
+   my $r = $self->routes;
+   $r->get('/')->to('example#welcome');
+ }
+ 
+ 1;
+
+ package MyApp::Example;
+ use Mojo::Base 'Mojolicious::Controller';
+ 
+ # This action will render a template
+ sub welcome {
+   my $self = shift;
+ 
+   # Render template "example/welcome.html.tt" with message
+   $self->render(
+     message => 'Looks like your TtRenderer is working!');
+ }
+ 
+ 1;
+
+These are also included with the C<Mojolicious::Plugin::TtRenderer>
+distribution, including the support files required for the full 
+L<Mojolicious> app example.
 
 =head1 SEE ALSO
 

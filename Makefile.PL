@@ -9,7 +9,7 @@ use ExtUtils::MakeMaker 6.30;
 
 
 my %WriteMakefileArgs = (
-  "ABSTRACT" => "Template Renderer Plugin",
+  "ABSTRACT" => "Template Renderer Plugin for Mojolicious",
   "AUTHOR" => "Graham Ollis <plicease\@cpan.org>",
   "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
@@ -36,17 +36,18 @@ my %WriteMakefileArgs = (
     "warnings" => 0
   },
   "TEST_REQUIRES" => {
-    "File::Find" => 0,
+    "Capture::Tiny" => 0,
     "File::Temp" => 0,
     "FindBin" => 0,
     "Mojo::IOLoop" => 0,
     "Mojolicious::Lite" => 0,
     "Test::Mojo" => 0,
-    "Test::More" => 0,
+    "Test::More" => "0.88",
+    "blib" => 0,
     "lib" => 0,
     "utf8" => 0
   },
-  "VERSION" => "1.47",
+  "VERSION" => "1.48",
   "test" => {
     "TESTS" => "t/*.t"
   }
