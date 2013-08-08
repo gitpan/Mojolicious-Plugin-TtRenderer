@@ -13,7 +13,7 @@ use Scalar::Util 'weaken';
 use POSIX ':errno_h';
 
 # ABSTRACT: Template Toolkit renderer for Mojolicious
-our $VERSION = '1.49'; # VERSION
+our $VERSION = '1.50'; # VERSION
 
 __PACKAGE__->attr('tt');
 
@@ -232,7 +232,7 @@ Mojolicious::Plugin::TtRenderer::Engine - Template Toolkit renderer for Mojolici
 
 =head1 VERSION
 
-version 1.49
+version 1.50
 
 =head1 SYNOPSIS
 
@@ -304,7 +304,7 @@ object. When used the INCLUDE_PATH will be set to
 A hash reference of options that are passed to Template->new().  Note that if you
 specify an C<INCLUDE_PATH> through this option it will remove the DATA section
 templates from your path.  A better way to specify an C<INCLUDE_PATH> if you also
-want to use DATA section templates it by manipulting the L<Mojolicious::Renderer>
+want to use DATA section templates it by manipulating the L<Mojolicious::Renderer>
 path.
 
 =item cache_dir
@@ -356,6 +356,8 @@ Jason Crowther
 spleenjack
 
 Árpád Szász
+
+Сергей Романов
 
 =head1 COPYRIGHT AND LICENSE
 

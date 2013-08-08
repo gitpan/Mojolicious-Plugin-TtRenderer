@@ -45,4 +45,4 @@ resources:
   bugtracker: https://github.com/plicease/mojox-renderer-tt/issues
   homepage: http://perl.wdlabs.com/Mojolicious-Plugin-TtRenderer/
   repository: git://github.com/plicease/mojox-renderer-tt.git
-version: 1.49
+version: 1.50

@@ -5,7 +5,7 @@ use warnings;
 use v5.10;
 
 # ABSTRACT: Template Renderer Plugin for Mojolicious
-our $VERSION = '1.49'; # VERSION
+our $VERSION = '1.50'; # VERSION
 
 use base 'Mojolicious::Plugin';
 
@@ -36,7 +36,7 @@ Mojolicious::Plugin::TtRenderer - Template Renderer Plugin for Mojolicious
 
 =head1 VERSION
 
-version 1.49
+version 1.50
 
 =head1 SYNOPSIS
 
@@ -56,6 +56,10 @@ configuration you may want to use
 L<Mojolicious::Plugin::TtRenderer::Engine> directly.
 
 =encoding utf-8
+
+=for stopwords Bjørn
+Szász
+Árpád
 
 =head1 OPTIONS
 
@@ -121,7 +125,7 @@ C<utf-87>
 
 C<128>
 
-=item RELATIZE
+=item RELATIVE
 
 C<1> (true)
 
@@ -262,6 +266,8 @@ Jason Crowther
 spleenjack
 
 Árpád Szász
+
+Сергей Романов
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -3,7 +3,7 @@ NAME
     Mojolicious
 
 VERSION
-    version 1.49
+    version 1.50
 
 SYNOPSIS
     Mojolicious::Lite:
@@ -75,7 +75,7 @@ OPTIONS
     CACHE_SIZE
         128
 
-    RELATIZE
+    RELATIVE
         1 (true)
 
   cache_dir
@@ -202,6 +202,8 @@ AUTHOR
     spleenjack
 
     Árpád Szász
+
+    Сергей Романов
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2013 by Ask Bjørn Hansen.
