@@ -13,7 +13,7 @@ use Scalar::Util 'weaken';
 use POSIX ':errno_h';
 
 # ABSTRACT: Template Toolkit renderer for Mojolicious
-our $VERSION = '1.50'; # VERSION
+our $VERSION = '1.51'; # VERSION
 
 __PACKAGE__->attr('tt');
 
@@ -226,13 +226,15 @@ __END__
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 Mojolicious::Plugin::TtRenderer::Engine - Template Toolkit renderer for Mojolicious
 
 =head1 VERSION
 
-version 1.50
+version 1.51
 
 =head1 SYNOPSIS
 
@@ -262,7 +264,19 @@ Add the handler:
 
 Template parameter are taken from C<$c-E<gt>stash>.
 
-=encoding utf-8
+=head1 DESCRIPTION
+
+See L<Mojolicious::Plugin::TtRenderer> for details on the plugin interface to this module.
+
+This module provides an engine for the rendering of L<Template Toolkit|Template> templates
+within a Mojolicious context.  Templates may be, stored on the local file system, provided
+inline by the controller or included in the C<__DATA__> section.  Where possible this modules
+attempts to provide a TT analogue interface to the L<Perlish templates|Mojo::Template> which 
+come with Mojolicious.
+
+=for stopwords Bjørn
+Szász
+Árpád
 
 =head1 RENDERING
 
@@ -316,7 +330,7 @@ templates. Will default to a temp-dir if not set.
 
 =head1 SEE ALSO
 
-L<Mojolicious::Plugin::TtRenderer::Engine>, 
+L<Mojolicious::Plugin::TtRenderer>, 
 L<Mojolicious>, 
 L<Mojolicious::Guides>, 
 L<http://mojolicious.org>.
@@ -359,9 +373,11 @@ spleenjack
 
 Сергей Романов
 
+uwisser
+
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ask Bjørn Hansen.
+This software is copyright (c) 2014 by Ask Bjørn Hansen.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

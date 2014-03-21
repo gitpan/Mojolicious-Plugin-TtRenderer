@@ -5,7 +5,7 @@ use warnings;
 use v5.10;
 
 # ABSTRACT: Template Renderer Plugin for Mojolicious
-our $VERSION = '1.50'; # VERSION
+our $VERSION = '1.51'; # VERSION
 
 use base 'Mojolicious::Plugin';
 
@@ -30,13 +30,15 @@ __END__
 
 =pod
 
+=encoding utf-8
+
 =head1 NAME
 
 Mojolicious::Plugin::TtRenderer - Template Renderer Plugin for Mojolicious
 
 =head1 VERSION
 
-version 1.50
+version 1.51
 
 =head1 SYNOPSIS
 
@@ -54,8 +56,6 @@ This plugin is a simple Template Toolkit renderer for L<Mojolicious>.
 Its defaults are usually reasonable, although for finer grain detail in 
 configuration you may want to use 
 L<Mojolicious::Plugin::TtRenderer::Engine> directly.
-
-=encoding utf-8
 
 =for stopwords Bjørn
 Szász
@@ -269,9 +269,11 @@ spleenjack
 
 Сергей Романов
 
+uwisser
+
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2013 by Ask Bjørn Hansen.
+This software is copyright (c) 2014 by Ask Bjørn Hansen.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
