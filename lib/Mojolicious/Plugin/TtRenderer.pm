@@ -5,7 +5,7 @@ use warnings;
 use v5.10;
 
 # ABSTRACT: Template Renderer Plugin for Mojolicious
-our $VERSION = '1.52'; # VERSION
+our $VERSION = '1.53'; # VERSION
 
 use base 'Mojolicious::Plugin';
 
@@ -38,7 +38,7 @@ Mojolicious::Plugin::TtRenderer - Template Renderer Plugin for Mojolicious
 
 =head1 VERSION
 
-version 1.52
+version 1.53
 
 =head1 SYNOPSIS
 

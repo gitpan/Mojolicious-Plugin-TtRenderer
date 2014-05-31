@@ -3,20 +3,12 @@ abstract: 'Template Renderer Plugin for Mojolicious'
 author:
   - 'Graham Ollis <plicease@cpan.org>'
 build_requires:
-  File::Temp: '0'
-  FindBin: '0'
-  IO::Handle: '0'
-  IPC::Open3: '0'
-  Mojo::IOLoop: '0'
-  Mojolicious::Lite: '0'
-  Test::Mojo: '0'
+  Module::Build: '0.3601'
   Test::More: '0'
-  lib: '0'
-  utf8: '0'
 configure_requires:
-  ExtUtils::MakeMaker: '6.30'
+  Module::Build: '0.3601'
 dynamic_config: 0
-generated_by: 'Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.141170'
+generated_by: 'Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.141170'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -34,7 +26,7 @@ requires:
   Template::Provider: '0'
   perl: v5.10.0
 resources:
-  bugtracker: https://github.com/plicease/Mojolicious-Plugin-TtRenderer/issues
+  bugtracker: https://github.com/plicease/mojolicious-plugin-ttrenderer/issues
   homepage: http://perl.wdlabs.com/Mojolicious-Plugin-TtRenderer/
-  repository: git://github.com/plicease/Mojolicious-Plugin-TtRenderer.git
-version: '1.52'
+  repository: git://github.com/plicease/mojolicious-plugin-ttrenderer.git
+version: '1.53'

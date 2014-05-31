@@ -4,7 +4,7 @@
       "Graham Ollis <plicease@cpan.org>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.015, CPAN::Meta::Converter version 2.141170",
+   "generated_by" : "Dist::Zilla version 5.019, CPAN::Meta::Converter version 2.141170",
    "license" : [
       "perl_5"
    ],
@@ -19,14 +19,14 @@
       ]
    },
    "prereqs" : {
-      "configure" : {
+      "build" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.30"
+            "Module::Build" : "0.3601"
          }
       },
-      "develop" : {
+      "configure" : {
          "requires" : {
-            "Test::CPAN::Meta" : "0"
+            "Module::Build" : "0.3601"
          }
       },
       "runtime" : {
@@ -46,31 +46,22 @@
             "EV" : "0"
          },
          "requires" : {
-            "File::Temp" : "0",
-            "FindBin" : "0",
-            "IO::Handle" : "0",
-            "IPC::Open3" : "0",
-            "Mojo::IOLoop" : "0",
-            "Mojolicious::Lite" : "0",
-            "Test::Mojo" : "0",
-            "Test::More" : "0",
-            "lib" : "0",
-            "utf8" : "0"
+            "Test::More" : "0"
          }
       }
    },
    "release_status" : "stable",
    "resources" : {
       "bugtracker" : {
-         "web" : "https://github.com/plicease/Mojolicious-Plugin-TtRenderer/issues"
+         "web" : "https://github.com/plicease/mojolicious-plugin-ttrenderer/issues"
       },
       "homepage" : "http://perl.wdlabs.com/Mojolicious-Plugin-TtRenderer/",
       "repository" : {
          "type" : "git",
-         "url" : "git://github.com/plicease/Mojolicious-Plugin-TtRenderer.git",
-         "web" : "https://github.com/plicease/Mojolicious-Plugin-TtRenderer"
+         "url" : "git://github.com/plicease/mojolicious-plugin-ttrenderer.git",
+         "web" : "https://github.com/plicease/mojolicious-plugin-ttrenderer"
       }
    },
-   "version" : "1.52"
+   "version" : "1.53"
 }
 

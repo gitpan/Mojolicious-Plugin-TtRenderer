@@ -13,7 +13,7 @@ use Scalar::Util 'weaken';
 use POSIX ':errno_h';
 
 # ABSTRACT: Template Toolkit renderer for Mojolicious
-our $VERSION = '1.52'; # VERSION
+our $VERSION = '1.53'; # VERSION
 
 __PACKAGE__->attr('tt');
 
@@ -234,7 +234,7 @@ Mojolicious::Plugin::TtRenderer::Engine - Template Toolkit renderer for Mojolici
 
 =head1 VERSION
 
-version 1.52
+version 1.53
 
 =head1 SYNOPSIS
 
